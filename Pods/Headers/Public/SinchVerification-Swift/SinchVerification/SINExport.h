@@ -1,0 +1,1 @@
+../../../../SinchVerification-Swift/swift/SinchVerification.framework/Headers/SINExport.h

@@ -1,0 +1,21 @@
+1. Create project
+2. pod file
+platform :ios, '8.0'
+use_frameworks! 
+pod 'SinchVerification-Swift'
+
+note 0.39 or later
+appkey:d578adbb-631b-41af-9d91-787b64fde076
+
+Embed Navigation controller, 
+add textbox, two buttons 
+set font size text filed to 35
+buttons and labels to 30, set the line count to 0
+a spinner 
+add outlets 
+Add action for Callout verification
+
+
+
+
+
