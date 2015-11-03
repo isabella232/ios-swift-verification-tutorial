@@ -39,8 +39,8 @@ Open up your workspace and go to **main.storyboard** file. Then open up assistan
 2. Add an SMS verification button and create an action called **smsVerification** 
 3. Add a callout verification button and create an action called **calloutVerification** 
 4. Add a label and call an outlet called **status**
-5. Add an activity indicator and an outlet called spinner, and then check the box to hide when no animated
-6. Embed the controller in a navigation controller editor, and then embed it in a Navigation Controller 
+5. Add an activity indicator and an outlet called **spinner**, and then check the box to hide when no animated
+6. Embed the ViewController in a navigation controller editor
 
 Add your constraints and the first screen is done. The next thing we are going to do is to add some code to do a callout verification. I want to start with this because the callout verification does not require any additional screens.
 
@@ -77,7 +77,7 @@ Great! Now we want to start a callout verification once the user clicks on the c
 }
 ```
 
-As you can see that's not a lot of code to make this roll. You might have noticed that I have a **disbleUI** call in there, and that's a small method to disable the UI while waiting for the call. This is important to do because if the user starts multiple verification requests they might get stuck in a loop where they never get verified and the phone just keeps ringing. I implemented a timeout for 30 seconds before I consider it to be a fail and the user can try again. 
+As you can see that's not a lot of code to make this roll. You might have noticed that I have a **disbleUI(Bool)** call in there, and that's a small method to disable the UI while waiting for the call. This is important to do because if the user starts multiple verification requests they might get stuck in a loop where they never get verified and the phone just keeps ringing. I implemented a timeout for 30 seconds before I consider it to be a fail and the user can try again. 
 
 ```swift
 fun disableUI(disable: Bool){
