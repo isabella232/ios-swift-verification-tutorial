@@ -7,7 +7,7 @@ In this tutorial you learn how to verify a user's phone number using our Swift f
 
 We also offer [Flash Call Verification](https://www.sinch.com/products/verification/flash-call-verification/) but this is only available for Android.
 
-At the end of this tutorial we will have a basic app that looks something like this.
+At the end of this tutorial we will have a basic app that looks like this.
 
 <center><img src="images/screen1.png" width="290px" alt="enable verification"><img src="images/screen2.png" width="290px" alt="successful verification"></center>
 
