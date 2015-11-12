@@ -13,7 +13,7 @@ At the end of this tutorial we will have a basic app that looks like this:
 
 ##Getting Started
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=fu1b3awU8I8" target="_blank"><img src="http://img.youtube.com/vi/fu1b3awU8I8/0.jpg" alt="Verify a phone number in Swift" width="240" height="180" border="10" /></a>
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=fu1b3awU8I8" target="_blank"><img src="images/video.jpg" alt="Verify a phone number in Swift" width="240" height="180" border="10" /></a>
 
 ###Sinch Setup
 1. [Create an account](https://www.sinch.com/dashboard/#/signup)
