@@ -15,7 +15,7 @@ At the end of this tutorial we will have a basic app that looks like this:
 
 We've made a video walk though to get you started with this project. Incudes how to set up the Xcode project, implement SMS and Callout verification, and some debugging at the end. Click the image to watch the video.
 
-<a href="https://www.youtube.com/watch?v=fu1b3awU8I8" target="_blank"><img src="images/video.jpg" alt="Verify a phone number in Swift" width="240" height="180" border="10" /></a>
+<a href="https://www.youtube.com/watch?v=fu1b3awU8I8" target="_blank"><img src="images/play.png" alt="Verify a phone number in Swift" width="75" border="10" /></a>
 
 ###Sinch Setup
 1. [Create an account](https://www.sinch.com/dashboard/#/signup)
