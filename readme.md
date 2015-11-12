@@ -20,7 +20,7 @@ We've made a video walk though to get you started with this project. Incudes how
 ###Sinch Setup
 1. [Create an account](https://www.sinch.com/dashboard/#/signup)
 2. Create an app and change set authorization to public (for now)
-![Sinch dashboard](images/configureapp.png)
+![Sinch dashboard](images/dashboard.png)
 3. Take note of the application key 
 
 Head over to Xcode to get some basic setup.
