@@ -13,7 +13,7 @@ At the end of this tutorial we will have a basic app that looks like this:
 
 ##Getting Started
 
-We've made a video walk though to get you started with this project. Incudes how to set up the Xcode project, implement SMS and Callout verification, and some debugging at the end. Click the image to watch the video.
+We've made a video walkthough to get you started with this project. Incudes how to set up the Xcode project, implement SMS and Callout verification, and some debugging at the end. Click the image to watch the video.
 
 <a href="https://www.youtube.com/watch?v=fu1b3awU8I8" target="_blank"><img src="images/video.png" alt="Verify a phone number in Swift" border="10" /></a>
 
