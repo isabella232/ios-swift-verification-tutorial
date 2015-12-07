@@ -3,7 +3,7 @@
 In this tutorial you learn how to verify a user's phone number using our Swift framework. We support two methods of verifying on iOS:
 
 * Classic [SMS PIN Verification](https://www.sinch.com/products/verification/sms-verification/)
-* [Callout Verification](https://www.sinch.com/products/verification/) where we place a call to the number and the user then presses 1 to confirm that they wanted the call
+* [Phone Verification](https://www.sinch.com/products/verification/) where we place a callout to a number and the user then presses 1 to confirm that they wanted the call
 
 We also offer [Flash Call Verification](https://www.sinch.com/products/verification/flash-call-verification/) but this is only available for Android.
 
