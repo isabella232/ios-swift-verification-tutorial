@@ -1,14 +1,14 @@
 # Verifying a Phone Number in iOS using Swift 
 
 
-In this tutorial you learn how to verify a user's phone number using our Swift framework. We support two methods of verifying on iOS:
+In this tutorial you'll learn how to verify a user's phone number using our Swift framework. We support two methods of verifying on iOS:
 
-* Classic [SMS PIN Verification](https://www.sinch.com/products/verification/sms-verification/)
+* Standard [SMS PIN Verification](https://www.sinch.com/products/verification/sms-verification/)
 * [Callout Verification](https://www.sinch.com/products/verification/) where we place a call to the number and the user then presses 1 to confirm that they wanted the call
 
-We also offer [Flash Call Verification](https://www.sinch.com/products/verification/flash-call-verification/) but this is only available for Android.
+We also offer [Flash Call Verification](https://www.sinch.com/products/verification/flash-call-verification/), but this is available for Android only.
 
-At the end of this tutorial we will have a basic app that looks like this.
+At the end of this tutorial we will have a basic app that looks like this:
 
 <center><img src="images/screen1.png" width="290px" alt="enable verification"><img src="images/screen2.png" width="290px" alt="successful verification"></center>
 
@@ -121,10 +121,10 @@ override func viewWillAppear(_ animated: Bool) {
 }
 ```
 
-So nothing fancy as you can see. Run the app and try it out. Pretty sweet right?
+Nothing too fancy as you can see. Run the app and try it out. Pretty sweet right?
 
 ##Adding SMS Verification
-Another way of adding verification is the classic SMS PIN that I am sure you have used. The downside of SMS in my opinion is that you need to enter a code which adds some friction to the user experience. 
+Another way of adding verification is the classic SMS PIN method, which I'm sure you have used. The downside of SMS, in my opinion, is that you need the user to enter a code which does add some friction to the user experience. 
 
 To accomplish an SMS verification, you will need a new view where a user can enter a code. Add a new ViewController to the solution and call in **EnterCodeViewController.swift**. 
 
