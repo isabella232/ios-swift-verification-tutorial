@@ -1,5 +1,6 @@
 # Verifying a Phone Number in iOS using Swift 
 
+
 In this tutorial you learn how to verify a user's phone number using our Swift framework. We support two methods of verifying on iOS:
 
 * Classic [SMS PIN Verification](https://www.sinch.com/products/verification/sms-verification/)
@@ -65,55 +66,59 @@ var applicationKey = "your key";
 Great! Now we want to start a callout verification once the user clicks on the callout verification button. 
 
 ```swift
-@IBAction fun calloutVerification(sender: AnyObject) {
-    disableUI(true);
-    verification = CalloutVerification(
-    	applicationKey:applicationKey, 
-    	phoneNumber: phoneNumber.text!);
-    verification.initiate { (success:Bool, error:NSError?) -> Void in
-        self.disableUI(false);
-        self.status.text = (success ? "Verified" : error?.description);
+ @IBAction func calloutVerification(_ sender: AnyObject) {
+        disableUI(true);
+        verification = CalloutVerification(applicationKey, 
+        	phoneNumber: phoneNumber.text!);
+        verification.initiate { (success:Bool, error:Error?) -> Void in
+            self.disableUI(false);
+            self.status.text = (success ? "Verified" : error?.localizedDescription);
+        }
     }
-}
 ```
 
 As you can see that's not a lot of code to make this roll. You might have noticed that I have a **disbleUI(Bool)** call in there, and that's a small method to disable the UI while waiting for the call. This is important to do because if the user starts multiple verification requests they might get stuck in a loop where they never get verified and the phone just keeps ringing. I implemented a timeout for 30 seconds before I consider it to be a fail and the user can try again. 
 
 ```swift
-fun disableUI(disable: Bool){
-    var alpha:CGFloat = 1.0; // if enabled alpha is 1
-    if (disable) {
-        alpha = 0.5; add alpha to get disabled look
-        phoneNumber.resignFirstResponder(); 
-        spinner.startAnimating(); 
-        self.status.text="";
-        // enable the ui after 30 seconds if no success or fail has been recieved in the
-        //verification sdk
-        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(30 * Double(NSEC_PER_SEC)))
-        dispatch_after(delayTime, dispatch_get_main_queue(), { () -> Void in
-            self.disableUI(false);
-        });
+func disableUI(_ disable: Bool){
+        var alpha:CGFloat = 1.0;
+        if (disable) {
+            alpha = 0.5;
+            phoneNumber.resignFirstResponder();
+            spinner.startAnimating();
+            self.status.text="";
+            let delayTime = 
+            			DispatchTime.now() + 
+            			Double(Int64(30 * Double(NSEC_PER_SEC))) 
+            			/ Double(NSEC_PER_SEC)
+            DispatchQueue.main.asyncAfter(
+            deadline: delayTime, execute: 
+            { () -> Void in
+                self.disableUI(false);
+            });
+        }
+        else{
+            self.phoneNumber.becomeFirstResponder();
+            self.spinner.stopAnimating();
+            
+        }
+        self.phoneNumber.isEnabled = !disable;
+        self.smsButton.isEnabled = !disable;
+        self.calloutButton.isEnabled = !disable;
+        self.calloutButton.alpha = alpha;
+        self.smsButton.alpha = alpha;
     }
-    else{
-        self.phoneNumber.becomeFirstResponder();
-        self.spinner.stopAnimating();
-        
-    }
-    self.phoneNumber.enabled = !disable;
-    self.smsButton.enabled = !disable;
-    self.calloutButton.enabled = !disable;
-    self.calloutButton.alpha = alpha;
-    self.smsButton.alpha = alpha;
-}
+
 ```
 
 Time to add some nicer UI. Add a **viewWillAppear** and set the phone number to first responder.
 
 ```swift
-    override func viewWillAppear(animated: Bool) {
+override func viewWillAppear(_ animated: Bool) {
         phoneNumber.becomeFirstResponder();
-        disableUI(false); // make sure UI is enabled,
-    }
+        disableUI(false);
+        
+}
 ```
 
 So nothing fancy as you can see. Run the app and try it out. Pretty sweet right?
@@ -139,18 +144,18 @@ Add your constraints and make it look how you want, but it should look something
 Initiating an SMS verification is very similar to Callout. The big difference here is when you get the success callback, it doesn't mean its verified, it just means that we have sent an SMS. What we need to do after that is to send in a code that we get from user input to verify the code. In this case we do that in a separate view controller. So once we have the success, we perform the segue to show the entertain controller.   
 
 ```swift
-@IBAction fund smsVerification(sender: AnyObject) {
-	self.disableUI(true);
-	verification = 
-		SMSVerification(applicationKey:applicationKey, 
-			phoneNumber: phoneNumber.text!)
-	verification.initiate { (success:Bool, error:NSError?) -> Void in
-	    self.disableUI(false);
-	    if (success){
-	        self.performSegueWithIdentifier("enterPin", sender: sender);
-	    } else {
-	        self.status.text = error?.description;
-	    }
+@IBAction func smsVerification(_ sender: AnyObject) {
+    self.disableUI(true);
+    verification = SMSVerification(applicationKey, phoneNumber: phoneNumber.text!)
+    
+    verification.initiate { (success:Bool, error:Error?) -> Void in
+        self.disableUI(false);
+        if (success){
+            self.performSegue(withIdentifier: "enterPin", sender: sender)
+            
+        } else {
+            self.status.text = error?.localizedDescription
+    	}
 	}
 }
 ```
@@ -158,9 +163,9 @@ Initiating an SMS verification is very similar to Callout. The big difference he
 To verify a verification, you need to keep the current verification object, so in in **prepareForSegue** we want to pass on the current verification object so we can call verify on it. 
 
 ```swift
-override fun prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
     if (segue.identifier == "enterPin") {
-        let enterCodeVC = segue.destinationViewController as! EnterCodeViewController;
+        let enterCodeVC = segue.destination as! EnterCodeViewController;
         enterCodeVC.verification = self.verification;
     }
     
@@ -170,22 +175,23 @@ override fun prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
 Now that's out of the way, open up **EnterCodeViewController.swift** and go to the action **verify** and set up the UI for making a verification request, and call verify on your verification object. 
 
 ```swift
-@IBAction fund verify(sender: AnyObject) {
-	spinner.startAnimating();
-	verifyButton.enabled = false;
-	status.text  = "";
-	pinCode.enabled = false;
-	verification.verify(pinCode.text!, 
-		completion: { (success:Bool, error:NSError?) -> Void in
-	   		self.spinner.stopAnimating();
-	    	self.verifyButton.enabled = true;
-	    	self.pinCode.enabled = true;
-	    if (success) {
-	        self.status.text = "Verified";
-	    } else {
-	        self.status.text = error?.description;
-	    }
-	});
+@IBAction func verify(sender: AnyObject) {
+    spinner.startAnimating();
+    verifyButton.isEnabled = false;
+    status.text  = "";
+    pinCode.isEnabled = false;
+    verification.verify(
+    	pinCode.text!, completion: 
+    	{ (success:Bool, error:Error?) -> Void in
+			self.spinner.stopAnimating();
+			self.verifyButton.isEnabled = true;
+			self.pinCode.isEnabled = true;
+			if (success) {
+			    self.status.text = "Verified";
+			} else {
+			    self.status.text = error?.localizedDescription;
+			}
+    });
 }
 ```
 

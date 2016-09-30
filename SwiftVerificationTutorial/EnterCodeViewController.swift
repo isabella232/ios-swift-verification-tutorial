@@ -24,17 +24,19 @@ class EnterCodeViewController: UIViewController {
 
     @IBAction func verify(sender: AnyObject) {
         spinner.startAnimating();
-        verifyButton.enabled = false;
+        verifyButton.isEnabled = false;
         status.text  = "";
-        pinCode.enabled = false;
-        verification.verify(pinCode.text!, completion: { (success:Bool, error:NSError?) -> Void in
+        pinCode.isEnabled = false;
+        verification.verify(pinCode.text!, completion: { (success:Bool, error:Error?) -> Void in
+          
+            
             self.spinner.stopAnimating();
-            self.verifyButton.enabled = true;
-            self.pinCode.enabled = true;
+            self.verifyButton.isEnabled = true;
+            self.pinCode.isEnabled = true;
             if (success) {
                 self.status.text = "Verified";
             } else {
-                self.status.text = error?.description;
+                self.status.text = error?.localizedDescription;
             }
         });
     }

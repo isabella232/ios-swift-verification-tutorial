@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         phoneNumber.becomeFirstResponder();
         disableUI(false);
         
@@ -32,15 +32,15 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning();
         // Dispose of any resources that can be recreated.
     }
-    func disableUI(disable: Bool){
+    func disableUI(_ disable: Bool){
         var alpha:CGFloat = 1.0;
         if (disable) {
             alpha = 0.5;
             phoneNumber.resignFirstResponder();
             spinner.startAnimating();
             self.status.text="";
-            let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(30 * Double(NSEC_PER_SEC)))
-            dispatch_after(delayTime, dispatch_get_main_queue(), { () -> Void in
+            let delayTime = DispatchTime.now() + Double(Int64(30 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+            DispatchQueue.main.asyncAfter(deadline: delayTime, execute: { () -> Void in
                 self.disableUI(false);
             });
         }
@@ -49,37 +49,39 @@ class ViewController: UIViewController {
             self.spinner.stopAnimating();
             
         }
-        self.phoneNumber.enabled = !disable;
-        self.smsButton.enabled = !disable;
-        self.calloutButton.enabled = !disable;
+        self.phoneNumber.isEnabled = !disable;
+        self.smsButton.isEnabled = !disable;
+        self.calloutButton.isEnabled = !disable;
         self.calloutButton.alpha = alpha;
         self.smsButton.alpha = alpha;
     }
     
-    @IBAction func smsVerification(sender: AnyObject) {
+    @IBAction func smsVerification(_ sender: AnyObject) {
         self.disableUI(true);
-        verification = SMSVerification(applicationKey:applicationKey, phoneNumber: phoneNumber.text!)
-        verification.initiate { (success:Bool, error:NSError?) -> Void in
+        verification = SMSVerification(applicationKey, phoneNumber: phoneNumber.text!)
+        
+        verification.initiate { (success:Bool, error:Error?) -> Void in
             self.disableUI(false);
             if (success){
-                self.performSegueWithIdentifier("enterPin", sender: sender);
+                self.performSegue(withIdentifier: "enterPin", sender: sender)
+                
             } else {
-                self.status.text = error?.description;
+                self.status.text = error?.localizedDescription
             }
         }
     }
-    @IBAction func calloutVerification(sender: AnyObject) {
+    @IBAction func calloutVerification(_ sender: AnyObject) {
         disableUI(true);
-        verification = CalloutVerification(applicationKey:applicationKey, phoneNumber: phoneNumber.text!);
-        verification.initiate { (success:Bool, error:NSError?) -> Void in
+        verification = CalloutVerification(applicationKey, phoneNumber: phoneNumber.text!);
+        verification.initiate { (success:Bool, error:Error?) -> Void in
             self.disableUI(false);
-            self.status.text = (success ? "Verified" : error?.description);
+            self.status.text = (success ? "Verified" : error?.localizedDescription);
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
         if (segue.identifier == "enterPin") {
-            let enterCodeVC = segue.destinationViewController as! EnterCodeViewController;
+            let enterCodeVC = segue.destination as! EnterCodeViewController;
             enterCodeVC.verification = self.verification;
         }
         
