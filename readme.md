@@ -148,7 +148,7 @@ Initiating an SMS verification is very similar to Callout. The big difference he
     self.disableUI(true);
     verification = SMSVerification(applicationKey, phoneNumber: phoneNumber.text!)
     
-    verification.initiate { (success:Bool, error:Error?) -> Void in
+    verification.initiate { (result: InitiationResult, error:Error?) -> Void in
         self.disableUI(false);
         if (success){
             self.performSegue(withIdentifier: "enterPin", sender: sender)
