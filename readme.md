@@ -70,7 +70,7 @@ Great! Now we want to start a callout verification once the user clicks on the c
         disableUI(true);
         verification = CalloutVerification(applicationKey, 
         	phoneNumber: phoneNumber.text!);
-        verification.initiate { (success:Bool, error:Error?) -> Void in
+        verification.initiate { (result: InitiationResult, error: NSError?) -> Void in
             self.disableUI(false);
             self.status.text = (success ? "Verified" : error?.localizedDescription);
         }
