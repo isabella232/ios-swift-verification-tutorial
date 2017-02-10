@@ -4,7 +4,12 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods.xcscheme</key>
+		<key>Pods-SwiftVerificationTutorial.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SinchVerification-Swift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -12,7 +17,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1BA84416B19DF31967CCD7D02D962E49</key>
+		<key>AD216B442D9B25597FAD16C7BF1744A2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D947BADE1B7F5433FC24DE09CC2006F5</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		02E126AE8960EE236AE89477 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF6BBC5C1F6ED305B51911D /* Pods.framework */; };
+		03EA26BFCB5D28C33FDCAD10 /* Pods_SwiftVerificationTutorial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7A6ED3D4B0F70410BA15537 /* Pods_SwiftVerificationTutorial.framework */; };
 		774B22671BE2AC490008D399 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774B22661BE2AC490008D399 /* AppDelegate.swift */; };
 		774B22691BE2AC490008D399 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774B22681BE2AC490008D399 /* ViewController.swift */; };
 		774B226C1BE2AC490008D399 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 774B226A1BE2AC490008D399 /* Main.storyboard */; };
@@ -18,7 +18,7 @@
 
 /* Begin PBXFileReference section */
 		0BF6BBC5C1F6ED305B51911D /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7317969C25E12B74A7672064 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		182931DA4CB4C77B86B10130 /* Pods-SwiftVerificationTutorial.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftVerificationTutorial.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftVerificationTutorial/Pods-SwiftVerificationTutorial.release.xcconfig"; sourceTree = "<group>"; };
 		774B22631BE2AC490008D399 /* SwiftVerificationTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftVerificationTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		774B22661BE2AC490008D399 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		774B22681BE2AC490008D399 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -27,7 +27,8 @@
 		774B22701BE2AC490008D399 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		774B22721BE2AC490008D399 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		774B22781BE2DE4E0008D399 /* EnterCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterCodeViewController.swift; sourceTree = "<group>"; };
-		CBCAFEA25435BCE357FF464B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		A200DB746D3591CE36FB4098 /* Pods-SwiftVerificationTutorial.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftVerificationTutorial.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftVerificationTutorial/Pods-SwiftVerificationTutorial.debug.xcconfig"; sourceTree = "<group>"; };
+		A7A6ED3D4B0F70410BA15537 /* Pods_SwiftVerificationTutorial.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftVerificationTutorial.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,29 +36,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02E126AE8960EE236AE89477 /* Pods.framework in Frameworks */,
+				03EA26BFCB5D28C33FDCAD10 /* Pods_SwiftVerificationTutorial.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2E19E344FB92CA562E7AAC8A /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				7317969C25E12B74A7672064 /* Pods.debug.xcconfig */,
-				CBCAFEA25435BCE357FF464B /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		774B225A1BE2AC490008D399 = {
 			isa = PBXGroup;
 			children = (
 				774B22651BE2AC490008D399 /* SwiftVerificationTutorial */,
 				774B22641BE2AC490008D399 /* Products */,
-				2E19E344FB92CA562E7AAC8A /* Pods */,
 				EE71E9933647943E93552C34 /* Frameworks */,
+				8E98D487F955A1DD559FB80B /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,10 +75,20 @@
 			path = SwiftVerificationTutorial;
 			sourceTree = "<group>";
 		};
+		8E98D487F955A1DD559FB80B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A200DB746D3591CE36FB4098 /* Pods-SwiftVerificationTutorial.debug.xcconfig */,
+				182931DA4CB4C77B86B10130 /* Pods-SwiftVerificationTutorial.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		EE71E9933647943E93552C34 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				0BF6BBC5C1F6ED305B51911D /* Pods.framework */,
+				A7A6ED3D4B0F70410BA15537 /* Pods_SwiftVerificationTutorial.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -98,12 +100,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 774B22751BE2AC490008D399 /* Build configuration list for PBXNativeTarget "SwiftVerificationTutorial" */;
 			buildPhases = (
-				7CC889E235AC1B55CCD3C95B /* Check Pods Manifest.lock */,
+				5AC21BFADBCE7011AB13D880 /* [CP] Check Pods Manifest.lock */,
 				774B225F1BE2AC490008D399 /* Sources */,
 				774B22601BE2AC490008D399 /* Frameworks */,
 				774B22611BE2AC490008D399 /* Resources */,
-				B4611E6DC9B497A58BB5C214 /* Embed Pods Frameworks */,
-				4B0116CFD82D0F2887B2F2C3 /* Copy Pods Resources */,
+				FC28050435CBA216CFFD7D2D /* [CP] Embed Pods Frameworks */,
+				188D7C9E2DA1FDBC8E59A677 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -126,7 +128,7 @@
 				TargetAttributes = {
 					774B22621BE2AC490008D399 = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = EMM43N6754;
+						DevelopmentTeam = J38B8DW54U;
 						LastSwiftMigration = 0800;
 					};
 				};
@@ -163,49 +165,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4B0116CFD82D0F2887B2F2C3 /* Copy Pods Resources */ = {
+		188D7C9E2DA1FDBC8E59A677 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftVerificationTutorial/Pods-SwiftVerificationTutorial-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7CC889E235AC1B55CCD3C95B /* Check Pods Manifest.lock */ = {
+		5AC21BFADBCE7011AB13D880 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		B4611E6DC9B497A58BB5C214 /* Embed Pods Frameworks */ = {
+		FC28050435CBA216CFFD7D2D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftVerificationTutorial/Pods-SwiftVerificationTutorial-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -331,10 +333,10 @@
 		};
 		774B22761BE2AC490008D399 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7317969C25E12B74A7672064 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = A200DB746D3591CE36FB4098 /* Pods-SwiftVerificationTutorial.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = EMM43N6754;
+				DEVELOPMENT_TEAM = J38B8DW54U;
 				INFOPLIST_FILE = SwiftVerificationTutorial/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sinch.SwiftVerificationTutorial;
@@ -345,10 +347,10 @@
 		};
 		774B22771BE2AC490008D399 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CBCAFEA25435BCE357FF464B /* Pods.release.xcconfig */;
+			baseConfigurationReference = 182931DA4CB4C77B86B10130 /* Pods-SwiftVerificationTutorial.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = EMM43N6754;
+				DEVELOPMENT_TEAM = J38B8DW54U;
 				INFOPLIST_FILE = SwiftVerificationTutorial/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sinch.SwiftVerificationTutorial;

@@ -60,9 +60,9 @@ class ViewController: UIViewController {
         self.disableUI(true);
         verification = SMSVerification(applicationKey, phoneNumber: phoneNumber.text!)
         
-        verification.initiate { (success:Bool, error:Error?) -> Void in
+        verification.initiate { (success:InitiationResult, error:Error?) -> Void in
             self.disableUI(false);
-            if (success){
+            if (success.success){
                 self.performSegue(withIdentifier: "enterPin", sender: sender)
                 
             } else {
@@ -73,9 +73,9 @@ class ViewController: UIViewController {
     @IBAction func calloutVerification(_ sender: AnyObject) {
         disableUI(true);
         verification = CalloutVerification(applicationKey, phoneNumber: phoneNumber.text!);
-        verification.initiate { (success:Bool, error:Error?) -> Void in
+        verification.initiate { (success:InitiationResult, error:Error?) -> Void in
             self.disableUI(false);
-            self.status.text = (success ? "Verified" : error?.localizedDescription);
+            self.status.text = (success.success ? "Verified" : error?.localizedDescription);
         }
     }
     
