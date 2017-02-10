@@ -72,7 +72,7 @@ Great! Now we want to start a callout verification once the user clicks on the c
         	phoneNumber: phoneNumber.text!);
         verification.initiate { (result: InitiationResult, error: NSError?) -> Void in
             self.disableUI(false);
-            self.status.text = (success ? "Verified" : error?.localizedDescription);
+            self.status.text = (success.success ? "Verified" : error?.localizedDescription);
         }
     }
 ```
@@ -150,7 +150,7 @@ Initiating an SMS verification is very similar to Callout. The big difference he
     
     verification.initiate { (result: InitiationResult, error:Error?) -> Void in
         self.disableUI(false);
-        if (success){
+        if (success.success){
             self.performSegue(withIdentifier: "enterPin", sender: sender)
             
         } else {
